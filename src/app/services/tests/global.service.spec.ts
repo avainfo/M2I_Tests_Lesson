@@ -18,11 +18,7 @@ describe('GlobalService', () => {
   });
 
   it('should return 200', async () => {
-    let x: Post = {id: 0, title: "", body: "", userId: 0}
-    await service.getObject<Post>(1, "posts", (value) => {
-      x = value;
-      console.log("test")
-    });
+    let x: Post = await service.getObject<Post>(1, "posts");
     expect(x.title).toEqual("sunt aut facere repellat provident occaecati excepturi optio reprehenderit");
   });
 });
