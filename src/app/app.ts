@@ -1,6 +1,5 @@
 import {Component, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {TodosService} from './services/todos.service';
 import {GlobalService} from './services/global.service';
 import {Todo} from './models/todo';
 import {Post} from './models/post';
@@ -12,7 +11,7 @@ import {Post} from './models/post';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('M2iTodoApp');
+  protected readonly title = signal('M2iTodoApp2');
 
   constructor(public globalService: GlobalService) {
   }
