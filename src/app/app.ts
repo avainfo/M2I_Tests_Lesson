@@ -1,6 +1,9 @@
 import {Component, signal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {TodosService} from './services/todos.service';
+import {GlobalService} from './services/global.service';
+import {Todo} from './models/todo';
+import {Post} from './models/post';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +14,18 @@ import {TodosService} from './services/todos.service';
 export class App {
   protected readonly title = signal('M2iTodoApp');
 
-  constructor(public todoService: TodosService) {
+  constructor(public globalService: GlobalService) {
   }
 
   async clickButton() {
-    this.todoService.getTodo(1);
+    await this.globalService.getObject<Todo>(15, "todos", (value) => {
+      console.log("Value returned completed:", value.completed)
+    });
+  }
+
+  async clickButton2() {
+    await this.globalService.getObject<Post>(1, "posts", (value) => {
+      console.log("Value returned body:", value.body)
+    });
   }
 }
