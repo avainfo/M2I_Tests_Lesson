@@ -17,14 +17,10 @@ export class App {
   }
 
   async clickButton() {
-    await this.globalService.getObject<Todo>(15, "todos", (value) => {
-      console.log("Value returned completed:", value.completed)
-    });
+    await this.globalService.getObject<Todo>(15, "todos");
   }
 
   async clickButton2() {
-    await this.globalService.getObject<Post>(1, "posts", (value) => {
-      console.log("Value returned body:", value.body)
-    });
+    await this.globalService.getObject<Post>(1, "posts");
   }
 }
